@@ -30,10 +30,10 @@ class Scraper
     doc = get_page
     courses = get_courses
     courses.each do |course|
-      title = course.css("h2").text
-      schedule = course.css(".date").text
-      desc = course.css("p").text
       new_course = Course.new
+      new_course.title = course.css("h2").text
+      new_course.schedule = course.css(".date").text
+      new_course.desc = course.css("p").text
     end
   end
 
